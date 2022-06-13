@@ -1,8 +1,11 @@
 import './App.css';
 import axios from "axios";
-import React from "react";
 import { useEffect, useState } from 'react';
+import { useAxios } from "use-axios-client";
 import CountryContainer from "./components/CountryContainer";
+import axiosClient from './utils/axios';
+import Header from "./components/Header";
+import CountriesContainer from './components/CountriesContainer';
 
 // const baseURL = "https://jsonplaceholder.typicode.com/posts/1";
 const baseURL = "https://restcountries.com/v2/";
@@ -31,19 +34,15 @@ function App() {
       })
   }
   if (!countries) {
-    return <div className='App flex justify-space-between align-center'>
+    return <div className='App flex justify-between align-center'>
       {!countries && error ? <p>{error}</p> : 'Loading...'}
     </div>
   }
   return (
-      <div className="flex flex-wrap gap-10 justify-space-between">
-      { countries.map((country) => 
-        <CountryContainer
-          key={country.name}
-          country={country}
-        />
-      )}
-    </div>
+      <div className="App">
+      <Header />
+      <CountriesContainer countries={countries} />
+      </div>
   );
 }
 

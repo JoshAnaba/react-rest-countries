@@ -2,11 +2,11 @@ import React from 'react'
 
 const CountryContainer = ({country}) => {
   return (
-    <div className="rounded w-48 h-64 shadow-md cursor-pointer">
+    <div className="rounded w-60 h-72 shadow-md cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300">
     <div className="img-div h-1/2">
     <img src={country.flag} alt={`flag of ${country.name}`} className="rounded-t h-full w-full" />
     </div>
-    <div className="content p-2.5">
+    <div className="content flex flex-col justify-start p-2.5">
       <p className="text-base font-semibold">
         {country.name}
       </p>
