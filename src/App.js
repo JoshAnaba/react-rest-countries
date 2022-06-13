@@ -11,6 +11,7 @@ import CountriesContainer from './components/CountriesContainer';
 const baseURL = "https://restcountries.com/v2/";
 
 function App() {
+  const [loading, setLoading] = useState(true);
   const [countries, setCountries] = useState(null);
   const [error, setError] = useState(null);
   useEffect(() => {
@@ -23,25 +24,21 @@ function App() {
     })
       .then((onfulfilled) => {
         setCountries(onfulfilled.data)
-        console.log(onfulfilled.data)
       })
       .catch((err) => {
         const errorMsg = err.response?.data?.message ? err.response?.data?.message : err.message
         setError(errorMsg)
       })
       .finally(() => {
-        // this.loading = false
+        setLoading(false)
       })
   }
-  if (!countries) {
-    return <div className='App flex justify-between align-center'>
-      {!countries && error ? <p>{error}</p> : 'Loading...'}
-    </div>
-  }
   return (
-      <div className="App">
+      <div className="App flex flex-col min-h-screen flex w-full">
       <Header />
-      <CountriesContainer countries={countries} />
+        <div className='flex min-h-screen justify-center items-center w-full text-center'>
+        {loading ? <div className="flex flex-col items-center">Loading...</div> : !error ? <CountriesContainer countries={countries} /> : <p>{error}</p>}
+        </div>
       </div>
   );
 }
