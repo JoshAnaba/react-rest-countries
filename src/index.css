@@ -5,15 +5,26 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-family: 'Inter', sans-serif;
-}
-
 :root {
   --dark-blue-dm-el: hsl(209, 23%, 22%);
   --very-dark-blue-dm-bg: hsl(207, 26%, 17%);
   --very-dark-blue-lm-txt: hsl(200, 15%, 8%);
   --dark-gray-lm-in: hsl(0, 0%, 52%);
-  --very-light-gray-lm-bg: hsl(0, 0%, 98%);
+  --light-mode-bg: (0, 0%, 98%);
+  --light-mode-color:  hsl(200, 15%, 8%);
   --white: hsl(0, 0%, 100%);
+}
+
+body {
+  background: var(--white-mode-bg);
+  color: var(--light-mode-color);
+}
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+.light-mode {
+  background: var(--light-mode-bg);
+  color: var(--light-mode-color);
 }

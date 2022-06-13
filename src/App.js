@@ -1,13 +1,10 @@
 import './App.css';
 import axios from "axios";
 import { useEffect, useState } from 'react';
-import { useAxios } from "use-axios-client";
-import CountryContainer from "./components/CountryContainer";
-import axiosClient from './utils/axios';
+// import { useAxios } from "use-axios-client";
+// import axiosClient from './utils/axios';
 import Header from "./components/Header";
 import CountriesContainer from './components/CountriesContainer';
-
-// const baseURL = "https://jsonplaceholder.typicode.com/posts/1";
 const baseURL = "https://restcountries.com/v2/";
 
 function App() {
