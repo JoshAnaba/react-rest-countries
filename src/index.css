@@ -28,3 +28,31 @@ body {
   background: var(--light-mode-bg);
   color: var(--light-mode-color);
 }
+
+.search-bar span.material-icons {
+  font-size: 1.5rem;
+  color: var(--dark-gray-lm-in);
+}
+
+.search-bar, 
+.filters {
+  height: 50px;
+}
+
+.filters button *,
+.filter-item {
+  /* background: var(--very-dark-blue-dm-bg); */
+  color: var(--dark-gray-lm-in);
+}
+
+.filter-item:hover {
+  color: #000;
+}
+
+.filters button span:first-child {
+  font-size: 14px;
+}
+
+.filters button span:nth-child(2) {
+  font-size: 20px;
+}
