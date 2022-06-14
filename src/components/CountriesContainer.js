@@ -13,6 +13,7 @@ const CountriesContainer = ({countries}) => {
   const filterBy = (item) => {
     console.log(item.toLowerCase())
     item !=='all' ? setRegion(item) : setRegion('')
+    setFilterOpen(false)
   }
   return (
     <div className='pt-16 pb-16 pr-20 pl-20 flex flex-col gap-10'>
@@ -32,12 +33,12 @@ const CountriesContainer = ({countries}) => {
               <span className="">{region? region : 'Filter by Region'}</span>
               <span className="material-icons">expand_more</span>
             </button>
-            {filterOpen ? <div className="filter-item-ctn flex flex-col absolute top-14 shadow-md rounded-md w-full right-0 left-0 bg-white p-2">
+            {filterOpen && <div className="filter-item-ctn flex flex-col absolute top-14 shadow-md rounded-md w-full right-0 left-0 bg-white p-2">
             <button className="filter-item text-start p-0.5 pr-3.5 pl-3.5 cursor-pointer" onClick={()=>{filterBy('all')}}>All</button>
             {filterItems.sort().map((item, index) => {
               return (<button key={index} className="filter-item text-start p-0.5 pr-3.5 pl-3.5 cursor-pointer" onClick={()=>{filterBy(item)}}>{item}</button>)
             })}
-            </div> : null}
+            </div> }
           </div>
         </div>
         {/* countries.filter(country => country.name.toLowerCase().includes(search.toLowerCase())) */}
