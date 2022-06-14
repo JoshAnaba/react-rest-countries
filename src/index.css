@@ -56,3 +56,22 @@ body {
 .filters button span:nth-child(2) {
   font-size: 20px;
 }
+
+.expand {
+  animation: expand-dropdown 0.5s forwards;
+}
+.contract {
+  animation: contract-dropdown 0.5s forwards;
+}
+
+@keyframes expand-dropdown {
+  0% { height: 0px; overflow: hidden;}
+  99% {overflow: hidden;}
+  100% { height: 180px; overflow: auto; }
+}
+
+@keyframes contract-dropdown {
+  0% { height: 180px; overflow: hidden; }
+  99% {overflow: hidden;}
+  100% { height: 0px; overflow: hidden; }
+}

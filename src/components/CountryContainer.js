@@ -11,7 +11,7 @@ const CountryContainer = ({country}) => {
         {country.name}
       </p>
       <div className="little-content">
-        <div className="little-content-item text-xs">
+        <div className="little-content-item text-xs text-start">
           <span className="content-label font-medium">
             Population:
           </span>
