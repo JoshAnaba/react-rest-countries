@@ -11,7 +11,6 @@ const CountriesContainer = ({countries}) => {
   const [search, setSearch] = useState('');
   const [filterOpen, setFilterOpen] = useState(false);
   const filterBy = (item) => {
-    console.log(item.toLowerCase())
     item !=='all' ? setRegion(item) : setRegion('')
     setFilterOpen(false)
   }

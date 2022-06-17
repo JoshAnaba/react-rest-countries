@@ -6,12 +6,12 @@ const CountryContainer = ({country}) => {
     <div className="img-div h-1/2">
     <img src={country.flag} alt={`flag of ${country.name}`} className="rounded-t h-full w-full" />
     </div>
-    <div className="content flex flex-col justify-start p-2.5">
+    <div className="text-start content flex flex-col justify-start p-2.5">
       <p className="text-base font-semibold">
         {country.name}
       </p>
       <div className="little-content">
-        <div className="little-content-item text-xs text-start">
+        <div className="little-content-item text-xs">
           <span className="content-label font-medium">
             Population:
           </span>
