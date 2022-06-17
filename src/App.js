@@ -1,6 +1,7 @@
 import './App.css';
 import axios from "axios";
 import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import { useAxios } from "use-axios-client";
 // import axiosClient from './utils/axios';
 import Header from "./components/Header";
@@ -31,12 +32,21 @@ function App() {
       })
   }
   return (
-      <div className="App flex flex-col min-h-screen flex w-full">
-      <Header />
-        <div className='flex min-h-screen justify-center items-center w-full text-center'>
-        {loading ? <div className="flex flex-col items-center">Loading...</div> : !error ? <CountriesContainer countries={countries} /> : <p>{error}</p>}
+      <Router>
+        <div className="App flex flex-col min-h-screen flex w-full">
+        <Header />
+        <Routes>
+          <Route path="/" element = {
+            <>
+              <div className='flex min-h-screen justify-center items-center w-full text-center'>
+                {loading ? <div className="flex flex-col items-center">Loading...</div> : !error ? <CountriesContainer countries={countries} /> : <p>{error}</p>}
+                </div>
+              </>
+            } 
+          />
+        </Routes>
         </div>
-      </div>
+      </Router>
   );
 }
 
