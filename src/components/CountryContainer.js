@@ -5,13 +5,13 @@ const CountryContainer = ({country}) => {
   return (
     <>
       <div className="rounded w-60 h-72 shadow-md cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300">
-       <Link to={`/country/${country.name.toLowerCase()}`}>
+       <Link to={`/country/${country.name.common.toLowerCase()}`}>
         <div className="img-div h-1/2">
-          <img src={country.flag} alt={`flag of ${country.name}`} className="rounded-t h-full w-full" />
+          <img src={country.flags[1]} alt={`flag of ${country.name.common}`} className="rounded-t h-full w-full" />
           </div>
           <div className="text-start content flex flex-col justify-start p-2.5">
             <p className="text-base font-semibold">
-              {country.name}
+              {country.name.common}
             </p>
             <div className="little-content">
               <div className="little-content-item text-xs">

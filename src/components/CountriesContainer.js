@@ -45,7 +45,7 @@ const CountriesContainer = ({countries}) => {
         <div className="flex flex-wrap gap-10 justify-between">
         { countries.map((country) => 
           <CountryContainer
-            key={country.name}
+            key={country.name.common}
             country={country}
           />
         )}
