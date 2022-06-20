@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
     fetchCountries()
   }, [])
-  const  fetchCountries = async () => {
+  const fetchCountries = async () => {
     await axios({
       url:  `${baseURL}all`,
       method: 'GET',
@@ -36,17 +36,17 @@ function App() {
       <Router>
         <div className="App flex flex-col min-h-screen flex w-full">
         <Header />
+              <div className='flex min-h-screen justify-center items-center w-full text-center'>
         <Routes>
           <Route path="/" element = {
             <>
-              <div className='flex min-h-screen justify-center items-center w-full text-center'>
                 {loading ? <div className="flex flex-col items-center">Loading...</div> : !error ? <CountriesContainer countries={countries} /> : <p>{error}</p>}
-                </div>
               </>
             } 
           />
           <Route path="/country/:name" element = { <Country /> } />
         </Routes>
+                </div>
         </div>
       </Router>
   );
