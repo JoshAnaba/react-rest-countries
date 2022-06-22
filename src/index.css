@@ -72,6 +72,10 @@ body {
   transform: translateX(-0.5rem) scale(1.1);
 }
 
+.active-region {
+  background: rgb(0, 0, 0, 0.1);
+}
+
 @keyframes expand-dropdown {
   0% { height: 0px; overflow: hidden;}
   99% {overflow: hidden;}
