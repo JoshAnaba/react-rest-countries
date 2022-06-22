@@ -64,6 +64,14 @@ body {
   animation: contract-dropdown 0.5s forwards;
 }
 
+.material-icons-outlined {
+  transition: 0.3s;
+}
+
+.back-btn:hover .material-icons-outlined {
+  transform: translateX(-0.5rem) scale(1.1);
+}
+
 @keyframes expand-dropdown {
   0% { height: 0px; overflow: hidden;}
   99% {overflow: hidden;}

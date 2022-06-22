@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from "axios";
-import CountryContainer from '../components/CountryContainer';
-
+// import CountryContainer from '../components/CountryContainer';
+import BackBtn from '../components/BackBtn';
 const Country = () => {
   const { name } = useParams()
   const baseURL = "https://restcountries.com/v3/";
@@ -44,8 +44,49 @@ const Country = () => {
     )
   } else if (countryItem){
     return (
-      <div>
-        <CountryContainer country={countryItem} />
+      <div className="w-full pb-20">
+       <div className="top pb-20">
+       <BackBtn />
+       </div>
+       <div className="inner-page-country-content flex w-full">
+        <div className="lhs w-2/5">
+        <img src={countryItem.flags[1]} alt={countryItem.name.official} />
+        </div>
+        <div className="rhs">
+        <div className="text-start content flex flex-col justify-start p-2.5">
+            <p className="text-base font-semibold">
+              {countryItem.name.official}
+            </p>
+            <div className="little-content">
+              <div className="little-content-item text-xs">
+                <span className="content-label font-medium">
+                  Population:
+                </span>
+                <span className="content-value">
+                  {countryItem.population}
+                </span>
+              </div>
+              <div className="little-content-item text-xs">
+                <span className="content-label font-medium">
+                  Region:
+                </span>
+                <span className="content-value">
+                  {countryItem.region}
+                </span>
+              </div>
+              <div className="little-content-item text-xs">
+                <span className="content-label font-medium">
+                  Capital:
+                </span>
+                <span className="content-value">
+                  {countryItem.capital}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+       </div>
+        {/* <CountryContainer country={countryItem} /> */}
       </div>
     )
   }
