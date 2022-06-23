@@ -76,6 +76,18 @@ body {
   background: rgb(0, 0, 0, 0.1);
 }
 
+.load-more {
+  background: var(--light-mode-color);
+  border: 2px solid var(--light-mode-color);
+  color: #fff;
+}
+
+.load-more:hover {
+  border: 2px solid var(--light-mode-color);
+  background: #fff;
+  color: var(--light-mode-color);
+}
+
 @keyframes expand-dropdown {
   0% { height: 0px; overflow: hidden;}
   99% {overflow: hidden;}
