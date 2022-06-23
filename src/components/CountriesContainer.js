@@ -101,7 +101,7 @@ const CountriesContainer = ({countries}) => {
           />
         )}
       </div>
-        <button className="load-more shadow-md p-3 rounded-full w-1/5 m-auto" onClick={loadMore}>Load More</button>
+        <button className="load-more shadow-md p-3 rounded-full w-1/5 m-auto" disabled={truncatedNumber >= filteredCountries.length} onClick={loadMore}>Load More</button>
     </div>
   )
 }

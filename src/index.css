@@ -88,6 +88,10 @@ body {
   color: var(--light-mode-color);
 }
 
+.load-more:disabled {
+  opacity: 0.5;
+}
+
 @keyframes expand-dropdown {
   0% { height: 0px; overflow: hidden;}
   99% {overflow: hidden;}
