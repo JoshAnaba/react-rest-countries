@@ -2,6 +2,7 @@ import './App.css';
 import axios from "axios";
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { AnimatePresence } from "framer-motion";
 // import { useAxios } from "use-axios-client";
 // import axiosClient from './utils/axios';
 import Header from "./components/Header";
@@ -33,22 +34,23 @@ function App() {
       })
   }
   return (
-      <Router>
-        <div className="App flex flex-col min-h-screen flex w-full">
+    <Router>
+      <div className="App flex flex-col min-h-screen flex w-full">
         <Header />
-              <div className='flex min-h-screen justify-center w-full text-center'>
-        <Routes>
-          <Route path="/" element = {
-            <>
-                {loading ? <div className="flex flex-col items-center">Loading...</div> : !error ? <CountriesContainer countries={countries} /> : <p>{error}</p>}
-              </>
-            } 
-          />
-          <Route path="/country/:name" element = { <Country /> } />
-        </Routes>
-                </div>
+        <div className='flex min-h-screen justify-center w-full text-center'>
+          <Routes>
+            <Route path="/"
+              element = {
+                <>
+                    {loading ? <div className="flex flex-col items-center">Loading...</div> : !error ? <CountriesContainer countries={countries} /> : <p>{error}</p>}
+                </>
+              } 
+            />
+            <Route path="/country/:name" element = { <Country /> } />
+          </Routes>
         </div>
-      </Router>
+      </div>
+    </Router>
   );
 }
 

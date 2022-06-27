@@ -2,8 +2,20 @@ import React from 'react';
 import CountryContainer from './CountryContainer';
 import { useState } from 'react';
 // import { BsSearch } from 'react-icons/bs';
+import { motion } from 'framer-motion';
 
 const CountriesContainer = ({countries}) => {
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.1,
+        staggerChildren: 0.1
+      }
+    }
+  };
   const filterItems = [
     {
       name:'Europe',
@@ -32,16 +44,18 @@ const CountriesContainer = ({countries}) => {
   ];
   const [region, setRegion] = useState('');
   const [filteredCountries, setCountryFilter] = useState(countries)
+  let filteredCountriesCopy = filteredCountries
   const [search, setSearch] = useState('');
   const [truncatedNumber, setTruncatedNumber] = useState(20)
   const [filterOpen, setFilterOpen] = useState(false);
   const loadMore = () => {
-    setTruncatedNumber((prevValue) => prevValue + 8);
+    setTruncatedNumber((prevValue) => prevValue + 10);
 };
   const filterBy = (item) => {
     item !=='all' ? setRegion(item) : setRegion('')
     const regionFilter =item !=='all' ? countries.filter(c => c.region === item) : countries
     setCountryFilter(regionFilter)
+    filteredCountriesCopy = filteredCountries
     setFilterOpen(false)
   }
   // const data = Object.values(countries);
@@ -49,8 +63,23 @@ const CountriesContainer = ({countries}) => {
   // const search_parameters = Object.keys(Object.assign({}, ...data));
   // const  = [...new Set(data.map((item) => item.region))];
 
-  const searchCountry = (items)=> {
-    setSearch(items)
+  const searchCountry = (item)=> {
+    // console.log(filteredCountries[0])
+    setSearch(item)
+    console.log(item)
+    const newCountrySet = []
+    filteredCountriesCopy.map(c => {
+      // const name = c.name.common || c.name.official
+      const name = c.name.common.toLowerCase()
+      if (name.includes(item.toLowerCase())) {
+        newCountrySet.push(c)
+      } else {
+
+      }
+      return c
+    })
+    setCountryFilter(newCountrySet)
+    console.log(filteredCountries.length)
       // const searchItem = items.filter(
       //     (item) =>
       //         item.region.includes(filteredCountries) &&
@@ -63,7 +92,7 @@ const CountriesContainer = ({countries}) => {
 
 
   return (
-    <div className='pt-16 pb-16 pr-20 pl-20 flex flex-col gap-10'>
+    <div className='w-full pt-16 pb-16 pr-20 pl-20 flex flex-col gap-10'>
       <div className='z-10 h-10 top flex items-center justify-between'>
         <div className="search-bar flex items-center gap-5 shadow-md p-3.5 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
           <label htmlFor="search">
@@ -71,7 +100,7 @@ const CountriesContainer = ({countries}) => {
               search
             </span>
           </label>
-          <input type="search" id="search" placeholder='Search country' value={search} className='border-0 outline-0 w-96' onChange={(e) => searchCountry(e.target.value)} 
+          <input type="search" id="search" placeholder='Search country' value={search} className='border-0 outline-0 w-96' onInput={(e) => searchCountry(e.target.value)} 
           />
         </div>
         <div>
@@ -93,14 +122,19 @@ const CountriesContainer = ({countries}) => {
         </div>
         {/* countries.filter(country => country.name.toLowerCase().includes(search.toLowerCase())) */}
         </div>
-        <div className="flex flex-wrap gap-10 justify-between">
+        <motion.div 
+        className="flex flex-wrap gap-10 justify-between" 
+        variants={container}
+        initial="hidden"
+        animate="visible"
+        >
         { filteredCountries.slice(0, truncatedNumber).map((country) => 
-          <CountryContainer
+           <CountryContainer
             key={country.name.common}
             country={country}
           />
         )}
-      </div>
+      </motion.div>
         <button className="load-more shadow-md p-3 rounded-full w-1/5 m-auto" disabled={truncatedNumber >= filteredCountries.length} onClick={loadMore}>Load More</button>
     </div>
   )

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { motion } from "framer-motion"
 import axios from "axios";
 // import CountryContainer from '../components/CountryContainer';
 import BackBtn from '../components/BackBtn';
@@ -49,10 +50,10 @@ const Country = () => {
        <BackBtn />
        </div>
        <div className="inner-page-country-content flex w-full">
-        <div className="lhs w-2/5">
+        <motion.div className="lhs w-2/5" animate={{ x: 100 }} transition={{ ease: "easeOut", duration: 0.3 }}>
         <img src={countryItem.flags[1]} alt={countryItem.name.official} />
-        </div>
-        <div className="rhs">
+        </motion.div>
+        <motion.div className="rhs" animate={{ x: -100 }} transition={{ ease: "easeOut", duration: 0.3 }}>
         <div className="text-start content flex flex-col justify-start p-2.5">
             <p className="text-base font-semibold">
               {countryItem.name.official}
@@ -84,7 +85,7 @@ const Country = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
        </div>
         {/* <CountryContainer country={countryItem} /> */}
       </div>
