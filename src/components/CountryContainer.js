@@ -12,8 +12,11 @@ const CountryContainer = ({country}) => {
   };
   return (
     <>
-      <motion.div className="rounded w-60 h-72 shadow-md cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300" 
-            variants={item}>
+      <motion.div className="rounded w-60 h-72 shadow-md cursor-pointer" 
+            variants={item} whileHover={{
+              scale: 1.05,
+              duration: 0.1
+            }}>
        <Link to={`/country/${country.name.common.toLowerCase()}`}>
         <div className="img-div h-1/2">
           <img src={country.flags[1]} alt={`flag of ${country.name.official}`} className="rounded-t h-full w-full" />
