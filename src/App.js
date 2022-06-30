@@ -2,14 +2,13 @@ import './App.css';
 import axios from "axios";
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { AnimatePresence } from "framer-motion";
 // import { useAxios } from "use-axios-client";
 // import axiosClient from './utils/axios';
 import Header from "./components/Header";
 import CountriesContainer from './components/CountriesContainer';
 import Country from './pages/country';
-const baseURL = "https://restcountries.com/v3/";
-function App() {
+const baseURL = "https://restcountries.com/v2/";
+function App () {
   const [loading, setLoading] = useState(true);
   const [countries, setCountries] = useState(null);
   const [error, setError] = useState(null);
@@ -19,10 +18,9 @@ function App() {
   const fetchCountries = async () => {
     await axios({
       url:  `${baseURL}all`,
-      method: 'GET',
+      method: 'GET'
     })
       .then((onfulfilled) => {
-        // console.log(onfulfilled.data)
         setCountries(onfulfilled.data)
       })
       .catch((err) => {

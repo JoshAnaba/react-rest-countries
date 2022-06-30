@@ -66,8 +66,8 @@ const CountriesContainer = ({countries}) => {
     setSearch(item)
     setCountryFilter(countries.filter((c) => { 
       return (currentRegionFilter 
-        ? c.region === currentRegionFilter && c.name.common.toLowerCase().includes(item.toLowerCase()) 
-        : c.name.common.toLowerCase().includes(item.toLowerCase()))
+        ? c.region === currentRegionFilter && c.name.toLowerCase().includes(item.toLowerCase()) 
+        : c.name.toLowerCase().includes(item.toLowerCase()))
       }
     ))
   }
@@ -103,14 +103,14 @@ const CountriesContainer = ({countries}) => {
         </div>
         </div>
         <motion.div 
-        className="flex flex-wrap px-16 gap-10" 
+        className="flex flex-wrap gap-10" 
         variants={container}
         initial="hidden"
         animate="visible"
         >
         { filteredCountries.slice(0, truncatedNumber).map((country) => 
            <CountryContainer
-            key={country.name.common}
+            key={country.name}
             country={country}
           />
         )}

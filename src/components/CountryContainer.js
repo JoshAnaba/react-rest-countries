@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion';
 
 const CountryContainer = ({country}) => {
+  console.log(country)
   const item = {
     hidden: { y: 20, opacity: 0 },
     visible: {
@@ -17,13 +18,18 @@ const CountryContainer = ({country}) => {
               scale: 1.05,
               duration: 0.1
             }}>
-       <Link to={`/country/${country.name.common.toLowerCase()}`}>
+        <Link 
+          to={{pathname: `/country/${country.name.toLowerCase()}`,
+          
+        }}
+        state= {{country}}
+        >
         <div className="img-div h-1/2">
-          <img src={country.flags[1]} alt={`flag of ${country.name.official}`} className="rounded-t h-full w-full" />
+          <img src={country.flag} alt={`flag of ${country.name}`} className="rounded-t h-full w-full" />
           </div>
           <div className="text-start content flex flex-col justify-start p-2.5">
             <p className="text-base font-semibold">
-              {country.name.official}
+              {country.name}
             </p>
             <div className="little-content">
               <div className="little-content-item text-xs">
