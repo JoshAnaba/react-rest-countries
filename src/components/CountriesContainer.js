@@ -1,7 +1,6 @@
 import React from 'react';
 import CountryContainer from './CountryContainer';
 import { useState } from 'react';
-// import { BsSearch } from 'react-icons/bs';
 import { motion } from 'framer-motion';
 
 const CountriesContainer = ({countries}) => {
@@ -43,8 +42,8 @@ const CountriesContainer = ({countries}) => {
     }
   ];
   const [region, setRegion] = useState('');
+  const [currentRegionFilter, setCurrentRegionFilter] = useState(null)
   const [filteredCountries, setCountryFilter] = useState(countries)
-  let filteredCountriesCopy = filteredCountries
   const [search, setSearch] = useState('');
   const [truncatedNumber, setTruncatedNumber] = useState(20)
   const [filterOpen, setFilterOpen] = useState(false);
@@ -52,44 +51,26 @@ const CountriesContainer = ({countries}) => {
     setTruncatedNumber((prevValue) => prevValue + 10);
 };
   const filterBy = (item) => {
-    item !=='all' ? setRegion(item) : setRegion('')
-    const regionFilter =item !=='all' ? countries.filter(c => c.region === item) : countries
+    item !== 'all'
+    ? setCurrentRegionFilter(item) && setRegion(item)
+    : setCurrentRegionFilter(null) && setRegion('')
+
+    const regionFilter = item !=='all' 
+    ? countries.filter(c => c.region === item) 
+    : countries
     setCountryFilter(regionFilter)
-    filteredCountriesCopy = filteredCountries
     setFilterOpen(false)
   }
-  // const data = Object.values(countries);
-
-  // const search_parameters = Object.keys(Object.assign({}, ...data));
-  // const  = [...new Set(data.map((item) => item.region))];
 
   const searchCountry = (item)=> {
-    // console.log(filteredCountries[0])
     setSearch(item)
-    console.log(item)
-    const newCountrySet = []
-    filteredCountriesCopy.map(c => {
-      // const name = c.name.common || c.name.official
-      const name = c.name.common.toLowerCase()
-      if (name.includes(item.toLowerCase())) {
-        newCountrySet.push(c)
-      } else {
-
+    setCountryFilter(countries.filter((c) => { 
+      return (currentRegionFilter 
+        ? c.region === currentRegionFilter && c.name.common.toLowerCase().includes(item.toLowerCase()) 
+        : c.name.common.toLowerCase().includes(item.toLowerCase()))
       }
-      return c
-    })
-    setCountryFilter(newCountrySet)
-    console.log(filteredCountries.length)
-      // const searchItem = items.filter(
-      //     (item) =>
-      //         item.region.includes(filteredCountries) &&
-      //         search_parameters.some((parameter) =>
-      //             item[parameter].toString().toLowerCase().includes(search)
-      //         )
-      // );
-      // setCountryFilter(searchItem)
+    ))
   }
-
 
   return (
     <div className='w-full pt-16 pb-16 pr-20 pl-20 flex flex-col gap-10'>
@@ -120,10 +101,9 @@ const CountriesContainer = ({countries}) => {
             </div> }
           </div>
         </div>
-        {/* countries.filter(country => country.name.toLowerCase().includes(search.toLowerCase())) */}
         </div>
         <motion.div 
-        className="flex flex-wrap gap-10 justify-between" 
+        className="flex flex-wrap px-16 gap-10" 
         variants={container}
         initial="hidden"
         animate="visible"
