@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion';
 
 const CountryContainer = ({country}) => {
-  console.log(country)
   const item = {
     hidden: { y: 20, opacity: 0 },
     visible: {
