@@ -88,7 +88,7 @@ body {
   transition: 0.3s;
 }
 
-.load-more:hover {
+.load-more:not(.load-more:disabled):hover {
   border: 2px solid var(--light-mode-color);
   background: #fff;
   color: var(--light-mode-color);

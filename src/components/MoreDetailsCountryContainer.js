@@ -66,7 +66,7 @@ const MoreDetailsCountryContainer = ({countryItem}) => {
                     Currencies:
                   </span>
                   <span className="content-value">
-                    {countryItem.currencies.map((e, i) => <span key={e.name}>
+                    {countryItem?.currencies?.map((e, i) => <span key={e.name}>
                       {e.name} {i+1 !== countryItem.currencies.length && ','}
                     </span>)}
                   </span>
@@ -76,7 +76,7 @@ const MoreDetailsCountryContainer = ({countryItem}) => {
                     Languages:
                   </span>
                   <span className="content-value">
-                  {countryItem.languages.map((e, i) => <span key={e.name}>
+                  {countryItem?.languages?.map((e, i) => <span key={e.name}>
                       {e.name} {i+1 !== countryItem.languages.length && ','}
                     </span>)}
                   </span>
@@ -89,7 +89,7 @@ const MoreDetailsCountryContainer = ({countryItem}) => {
                     Borders:
                   </span>
                   <span className="content-value">
-                  {countryItem.borders.map((e, i) => <span key={e}>
+                  {countryItem?.borders?.map((e, i) => <span key={e}>
                       {e} {i+1 !== countryItem.borders.length && ','}
                     </span>)}
                   </span>
