@@ -1,7 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-
+import functions from '../utils/functions'
 const MoreDetailsCountryContainer = ({countryItem}) => {
+  const {formatNumber} = functions
   return (
     <>
        <div className="inner-page-country-content flex w-full">
@@ -29,7 +30,7 @@ const MoreDetailsCountryContainer = ({countryItem}) => {
                     Population:
                   </span>
                   <span className="content-value">
-                    {countryItem.population}
+                    {formatNumber(countryItem.population)}
                   </span>
                 </div>
                 <div className="little-content-item text-xs">
@@ -83,6 +84,16 @@ const MoreDetailsCountryContainer = ({countryItem}) => {
                 </div>
               </div>
             </div>
+            <div className="little-content-item text-xs">
+                  <span className="content-label font-medium">
+                    Borders:
+                  </span>
+                  <span className="content-value">
+                  {countryItem.borders.map((e, i) => <span key={e}>
+                      {e} {i+1 !== countryItem.borders.length && ','}
+                    </span>)}
+                  </span>
+                </div>
           </div>
         </motion.div>
        </div>

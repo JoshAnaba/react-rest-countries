@@ -52,8 +52,11 @@ const CountriesContainer = ({countries}) => {
 };
   const filterBy = (item) => {
     item !== 'all'
-    ? setCurrentRegionFilter(item) && setRegion(item)
-    : setCurrentRegionFilter(null) && setRegion('')
+    ? setCurrentRegionFilter(item)
+    : setCurrentRegionFilter(null)
+    item !== 'all'
+    ? setRegion(item)
+    : setRegion('')
 
     const regionFilter = item !=='all' 
     ? countries.filter(c => c.region === item) 
@@ -96,7 +99,7 @@ const CountriesContainer = ({countries}) => {
               const sort = a.name > b.name ? 1 : b.name > a.name ? -1 : 0
               return sort
             }).map((item, index) => {
-              return (<button key={index} className={`filter-item text-start p-0.5 pr-3.5 pl-3.5 cursor-pointer pl-2 pr-2 ${region === item.name ? 'active-region': ''}`} onClick={()=>{filterBy(item.name)}}>{region === item.name}{item.text}</button>)
+              return (<button key={index} className={`filter-item text-start p-0.5 pr-3.5 pl-3.5 cursor-pointer pl-2 pr-2 ${region === item.name ? 'active-region': ''}`} onClick={()=>{filterBy(item.name)}}>{item.text}</button>)
             })}
             </div> }
           </div>
