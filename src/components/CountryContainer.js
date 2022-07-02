@@ -12,17 +12,15 @@ const CountryContainer = ({country}) => {
   };
   return (
     <>
+    <Link 
+      to={{pathname: `/country/${country.name.toLowerCase()}`}}
+      state= {{country}}
+    >
       <motion.div className="rounded w-60 h-72 shadow-md cursor-pointer" 
-            variants={item} whileHover={{
-              scale: 1.05,
-              duration: 0.1
-            }}>
-        <Link 
-          to={{pathname: `/country/${country.name.toLowerCase()}`,
-          
-        }}
-        state= {{country}}
-        >
+        variants={item} whileHover={{
+        scale: 1.05,
+        duration: 0.1
+      }}>
         <div className="img-div h-1/2">
           <img src={country.flags ? country.flags.png : country.flag} alt={`flag of ${country.name}`} className="rounded-t h-full w-full" />
         </div>
@@ -57,8 +55,8 @@ const CountryContainer = ({country}) => {
               </div>
             </div>
           </div>
-        </Link>
-      </motion.div>
+        </motion.div>
+      </Link>
     </>
   )
 }
