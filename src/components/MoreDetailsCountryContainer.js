@@ -7,7 +7,7 @@ const MoreDetailsCountryContainer = ({countryItem}) => {
     <>
        <div className="inner-page-country-content flex w-full">
         <motion.div className="lhs w-4/12" animate={{ x: 100 }} transition={{ ease: "easeOut", duration: 0.3 }}>
-        <img src={countryItem.flag} className="shadow-md w-full" alt={countryItem.name} />
+        <img src={countryItem.flags ? countryItem.flags?.png : countryItem.flag} className="shadow-md w-full" alt={countryItem.name} />
         </motion.div>
         <motion.div className="rhs" animate={{ x: 100 }} transition={{ ease: "easeOut", duration: 0.3 }}>
         <div className="text-start content flex flex-col justify-start p-2.5">
