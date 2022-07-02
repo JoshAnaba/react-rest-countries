@@ -1,8 +1,14 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import functions from '../utils/functions'
-const MoreDetailsCountryContainer = ({countryItem}) => {
+const MoreDetailsCountryContainer = ({countryItem, countries}) => {
   const {formatNumber} = functions
+  console.log(countries)
+  const getCountriesNamesFromBorderArray = () => {
+    countryItem.borders.forEach(e=>{
+      return countries.find(c => c.alpha3Code === e)
+    })
+  }
   return (
     <>
       <div className="inner-page-country-content flex w-full">
