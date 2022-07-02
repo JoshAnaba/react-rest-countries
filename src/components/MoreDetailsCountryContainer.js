@@ -86,7 +86,7 @@ const MoreDetailsCountryContainer = ({countryItem}) => {
             </div>
             <div className="little-content-item text-xs">
               <span className="content-label font-medium">
-                Borders:
+                Border Countries:
               </span>
               <span className="content-value">
               {countryItem?.borders?.map((e, i) => <span key={e}>
