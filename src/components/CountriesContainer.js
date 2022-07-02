@@ -85,7 +85,7 @@ const CountriesContainer = ({countries}) => {
         <FilterByRegion region={region} filterBy={filterBy} filterOpen={filterOpen} setFilterOpen={setFilterOpen} filterItems={filterItems} />
       </div>
       <motion.div 
-        className="flex flex-wrap gap-10" 
+        className="flex flex-wrap gap-10 justify-between" 
         variants={container}
         initial="hidden"
         animate="visible"
