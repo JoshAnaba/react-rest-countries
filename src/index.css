@@ -98,6 +98,15 @@ body {
   opacity: 0.5;
 }
 
+.content-label {
+  white-space: nowrap;
+}
+
+.content-label,
+.content-value {
+  font-size: 16px;
+}
+
 @keyframes expand-dropdown {
   0% { height: 0px; overflow: hidden;}
   99% {overflow: hidden;}

@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import Search from './Search';
 import FilterByRegion from './FilterByRegion';
 import LoadMoreBtn from './LoadMoreBtn';
-// import { AppContext } from '../context';
 
 const CountriesContainer = ({countries}) => {
   const container = {
@@ -95,6 +94,7 @@ const CountriesContainer = ({countries}) => {
            <CountryContainer
             key={country.name}
             country={country}
+            layoutId={country}
           />
         )}
       </motion.div>

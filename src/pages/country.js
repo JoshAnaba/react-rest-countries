@@ -10,7 +10,7 @@ const baseURL = "https://restcountries.com/v2/";
 const Country = () => {
   const { countries } = useContext(CountriesContext)
   // const counter = useSelector((state) => state.counter)
-  const { name } = useParams()
+  let { name } = useParams()
   const [loading, setLoading] = useState(true);
   const [countryItem, setCountry] = useState(null);
   const [error, setError] = useState(null);

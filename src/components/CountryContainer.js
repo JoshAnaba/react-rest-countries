@@ -20,7 +20,8 @@ const CountryContainer = ({country}) => {
         variants={item} whileHover={{
         scale: 1.05,
         duration: 0.1
-      }}>
+      }}
+      >
         <div className="img-div h-1/2">
           <img src={country.flags ? country.flags.png : country.flag} alt={`flag of ${country.name}`} className="rounded-t h-full w-full" />
         </div>
