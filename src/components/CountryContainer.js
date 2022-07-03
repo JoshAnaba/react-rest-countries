@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion';
+import functions from '../utils/functions'
 
 const CountryContainer = ({country}) => {
+  const {formatNumber} = functions
   const item = {
     hidden: { y: 20, opacity: 0 },
     visible: {
@@ -35,7 +37,7 @@ const CountryContainer = ({country}) => {
                   Population:
                 </span>
                 <span className="content-value">
-                  {country.population}
+                  {formatNumber(country.population)}
                 </span>
               </div>
               <div className="little-content-item text-xs">

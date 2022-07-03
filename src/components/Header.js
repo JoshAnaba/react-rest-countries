@@ -1,7 +1,7 @@
 import { BsFillMoonFill } from 'react-icons/bs';
 const Header = () => {
   return (
-    <div className="h-20 font-semibold flex justify-between pr-20 pl-20 items-center shadow-md">
+    <div className="h-20 font-semibold flex justify-between px-40 items-center shadow-md">
       <div className='lhs'>
       <h1 className="text-2xl">
         Where in the world?

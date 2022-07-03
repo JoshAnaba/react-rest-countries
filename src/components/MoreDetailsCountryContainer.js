@@ -24,8 +24,8 @@ const MoreDetailsCountryContainer = ({ countryItem, countries }) => {
   return (
     <>
       <div className="inner-page-country-content flex w-full justify-between">
-        <motion.div className="lhs w-4/12" animate={{ x: 0 }} transition={{ ease: "easeOut", duration: 0.3 }}>
-          <img src={countryItem.flags ? countryItem.flags?.png : countryItem.flag} className="shadow-md w-full" alt={countryItem.name} />
+        <motion.div className="lhs w-4/12 p-5 shadow-md rounded-md" animate={{ x: 0 }} transition={{ ease: "easeOut", duration: 0.3 }}>
+          <img src={countryItem.flags ? countryItem.flags?.png : countryItem.flag} className="w-full" alt={countryItem.name} />
         </motion.div>
         <motion.div className="rhs w-1/2" animate={{ x: 0 }} transition={{ ease: "easeOut", duration: 0.3 }}>
           <div className="content text-start flex flex-col justify-start p-2.5">
