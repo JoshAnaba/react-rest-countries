@@ -1,21 +1,21 @@
 import React, { useEffect, useState, useContext } from 'react'
 // eslint-disable-next-line no-unused-vars
-import { useParams, useLocation } from 'react-router-dom'
+import { useParams, useLocation, Outlet } from 'react-router-dom'
 import MoreDetailsCountryContainer from '../components/MoreDetailsCountryContainer';
 import axios from "axios";
 import BackBtn from '../components/BackBtn';
 // import { useSelector } from 'react-redux';
 import { CountriesContext } from '../App'
 const baseURL = "https://restcountries.com/v2/";
-const Country = () => {
+const BorderCountry = () => {
   const { countries } = useContext(CountriesContext)
   // const counter = useSelector((state) => state.counter)
-  const { name } = useParams()
+  const { borderCountry } = useParams()
   const [loading, setLoading] = useState(true);
   const [countryItem, setCountry] = useState(null);
   const [error, setError] = useState(null);
     const getCountryUrl = () => {
-      return `${baseURL}name/${name}`
+      return `${baseURL}name/${borderCountry}`
     }
     const fetchCountry = async () => {
       setCountry({})
@@ -45,8 +45,9 @@ const Country = () => {
             :
             <MoreDetailsCountryContainer countryItem={countryItem} countries={countries} />
         }
+        <Outlet />
       </div>
     )
 }
 
-export default Country
+export default BorderCountry

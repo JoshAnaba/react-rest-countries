@@ -1,14 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import functions from '../utils/functions'
-const MoreDetailsCountryContainer = ({countryItem, countries}) => {
+const MoreDetailsCountryContainer = ({ countryItem, countries }) => {
   const {formatNumber} = functions
-  console.log(countries)
+  const [borders, setBorders] = useState([])
   const getCountriesNamesFromBorderArray = () => {
-    countryItem.borders.forEach(e=>{
-      return countries.find(c => c.alpha3Code === e)
+    let bordersArray = []
+    countryItem?.borders?.forEach(e=>{
+      countries?.map( c => {
+        if (c.alpha3Code === e) {
+          bordersArray.push(c)
+        }
+        return c
+      })
+      setBorders(bordersArray)
     })
   }
+  useEffect(()=>{
+    getCountriesNamesFromBorderArray()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [countries])
   return (
     <>
       <div className="inner-page-country-content flex w-full">
@@ -94,11 +106,20 @@ const MoreDetailsCountryContainer = ({countryItem, countries}) => {
               <span className="content-label font-medium">
                 Border Countries:
               </span>
-              <span className="content-value">
-              {countryItem?.borders?.map((e, i) => <span key={e}>
-                  {e} {i+1 !== countryItem.borders.length && ','}
-                </span>)}
-              </span>
+              <div
+                className="content-value flex">
+                {borders?.map((e, i) => {
+                  return (
+                    <Link
+                    to={`/country/${e.name.toLowerCase()}`}
+                    className="p-2 shadow-md rounded gap-10"
+                    key={e.name}
+                  >
+                    {e.name}
+                  </Link>
+                  )}
+                )}
+              </div>
             </div>
           </div>
         </motion.div>

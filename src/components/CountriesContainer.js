@@ -80,8 +80,7 @@ const CountriesContainer = ({countries}) => {
   }
 
   return (
-    // <AppContext.Provider value={countries}>
-      <div className='w-full pt-16 pb-16 pr-20 pl-20 flex flex-col gap-10'>
+    <div className='w-full pt-16 pb-16 pr-20 pl-20 flex flex-col gap-10'>
       <div className='z-10 h-10 top flex items-center justify-between'>
         <Search search={search} searchCountry={searchCountry} />
         <FilterByRegion region={region} filterBy={filterBy} filterOpen={filterOpen} setFilterOpen={setFilterOpen} filterItems={filterItems} />
@@ -101,7 +100,6 @@ const CountriesContainer = ({countries}) => {
       </motion.div>
       <LoadMoreBtn truncatedNumber={truncatedNumber} filteredCountries={filteredCountries} loadMore={loadMore} />
     </div>
-    // </AppContext.Provider>
   )
 }
 
