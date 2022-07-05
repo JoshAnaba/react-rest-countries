@@ -11,18 +11,22 @@
   --very-dark-blue-lm-txt: hsl(200, 15%, 8%);
   --dark-gray-lm-in: hsl(0, 0%, 52%);
   --light-mode-bg: (0, 0%, 98%);
-  --light-mode-color:  hsl(200, 15%, 8%);
+  --light-mode-color: hsl(200, 15%, 8%);
   --white: hsl(0, 0%, 100%);
+  --open-sans: 'Open Sans', sans-serif
 }
 
 body {
-  background: var(--white-mode-bg);
+  background: var(--light-mode-bg);
   color: var(--light-mode-color);
 }
 
 * {
   font-family: 'Inter', sans-serif;
+  /* font-family: 'Open Sans', sans-serif; */
 }
+
+
 
 .light-mode {
   background: var(--light-mode-bg);
@@ -102,9 +106,24 @@ body {
   white-space: nowrap;
 }
 
-.content-label,
-.content-value {
+.inner-page-country-content .content-label,
+.inner-page-country-content .content-value {
   font-size: 16px;
+}
+
+.little-content-item {
+  padding: 3px 0;
+}
+
+.content > p {
+  /* font-family: var(--open-sans); */
+  font-weight: 600;
+}
+
+.country-container .content > p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @keyframes expand-dropdown {

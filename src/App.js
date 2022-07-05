@@ -8,7 +8,9 @@ import Country from './pages/country';
 // import BorderCountry from './pages/border-country';
 const baseURL = "https://restcountries.com/v2/";
 export const CountriesContext = createContext()
+export const ThemeContext = createContext('light');
 function App () {
+  console.log(ThemeContext)
   const [loading, setLoading] = useState(true);
   const [countries, setCountries] = useState(null);
   const [error, setError] = useState(null);
@@ -34,25 +36,25 @@ function App () {
   return (
       <Router>
       <CountriesContext.Provider value={{countries}}>
-      <div className="App flex flex-col min-h-screen flex w-full">
-        <Header />
-        <div className='flex min-h-screen justify-center w-full text-center px-20'>
-          <Routes>
-            <Route path="/"
-              element = {
-                <>
-                    {loading ? <div className="flex flex-col items-center">Loading...</div> : !error ?
-                      <CountriesContainer countries={countries} />
-                    : <p>{error}</p>}
-                </>
-              }
-            />
-           <Route path="/country/:name" element = { <Country /> } />
-            {/* <Route path="border-country/:border-name" element = { <BorderCountry /> } /> */}
-           {/* </Route> */}
-          </Routes>
+        <div className="App flex flex-col min-h-screen flex w-full">
+          <Header />
+          <div className='flex min-h-screen justify-center w-full text-center px-20'>
+            <Routes>
+              <Route path="/"
+                element = {
+                  <>
+                      {loading ? <div className="flex flex-col items-center">Loading...</div> : !error ?
+                        <CountriesContainer countries={countries} />
+                      : <p>{error}</p>}
+                  </>
+                }
+              />
+            <Route path="/country/:name" element = { <Country /> } />
+              {/* <Route path="border-country/:border-name" element = { <BorderCountry /> } /> */}
+            {/* </Route> */}
+            </Routes>
+          </div>
         </div>
-      </div>
       </CountriesContext.Provider>
     </Router>
   );

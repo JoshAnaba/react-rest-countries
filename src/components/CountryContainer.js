@@ -18,17 +18,18 @@ const CountryContainer = ({country}) => {
       to={{pathname: `/country/${country.name.toLowerCase()}`}}
       state= {{country}}
     >
-      <motion.div className="rounded w-60 h-72 shadow-md cursor-pointer" 
+      <motion.div className="country-container rounded w-60 h-80 shadow-md cursor-pointer" 
         variants={item} whileHover={{
         scale: 1.05,
         duration: 0.1
       }}
+      title={country.name}
       >
         <div className="img-div h-1/2">
           <img src={country.flags ? country.flags.png : country.flag} alt={`flag of ${country.name}`} className="rounded-t h-full w-full" />
         </div>
-          <div className="text-start content flex flex-col justify-start p-2.5">
-            <p className="text-base font-semibold">
+          <div className="text-start content flex flex-col justify-start p-5">
+            <p className="text-lg py-2 font-semibold">
               {country.name}
             </p>
             <div className="little-content">
