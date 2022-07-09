@@ -9,7 +9,7 @@ const Search = ({search, searchCountry}) => {
               search
             </span>
           </label>
-          <input type="search" id="search" placeholder='Search country' value={search} className='border-0 outline-0 w-96' onInput={(e) => searchCountry(e.target.value)} 
+          <input type="search" id="search" placeholder='Search country' value={search} className='border-0 outline-0 sm:w-96' onInput={(e) => searchCountry(e.target.value)} 
           />
         </div>
     </>

@@ -37,7 +37,7 @@ function App () {
       <CountriesContext.Provider value={{countries}}>
         <div className="App flex flex-col min-h-screen flex w-full">
           <Header />
-          <div className='flex min-h-screen justify-center w-full text-center px-20'>
+          <div className='flex min-h-screen justify-center w-full text-center sm:px-20'>
             <Routes>
               <Route path="/"
                 element = {
