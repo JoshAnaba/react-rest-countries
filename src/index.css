@@ -48,12 +48,6 @@ body {
   animation: squeeze-in 0.4s ease-in-out;
 }
 
-.filters button *,
-.filter-item {
-  /* background: var(--very-dark-blue-dm-bg); */
-  color: var(--dark-gray-lm-in);
-}
-
 .filter-item:hover {
   color: #000;
 }
@@ -112,7 +106,13 @@ body {
 }
 
 .little-content-item {
-  padding: 3px 0;
+  gap: 5px;
+  display: flex;
+  padding: 2.5px 0;
+}
+
+.little-content-item .content-value {
+  color: var(--dark-gray-lm-in);
 }
 
 .content > p {

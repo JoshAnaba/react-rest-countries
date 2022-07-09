@@ -4,13 +4,12 @@ import { useEffect, useState, createContext } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from "./components/Header";
 import CountriesContainer from './components/CountriesContainer';
-import Country from './pages/country';
+import Country from './Pages/country';
 // import BorderCountry from './pages/border-country';
 const baseURL = "https://restcountries.com/v2/";
 export const CountriesContext = createContext()
 export const ThemeContext = createContext('light');
 function App () {
-  console.log(ThemeContext)
   const [loading, setLoading] = useState(true);
   const [countries, setCountries] = useState(null);
   const [error, setError] = useState(null);
@@ -43,7 +42,7 @@ function App () {
               <Route path="/"
                 element = {
                   <>
-                      {loading ? <div className="flex flex-col items-center">Loading...</div> : !error ?
+                      {loading ? <div className="flex items-center min-h-screen">Loading...</div> : !error ?
                         <CountriesContainer countries={countries} />
                       : <p>{error}</p>}
                   </>
