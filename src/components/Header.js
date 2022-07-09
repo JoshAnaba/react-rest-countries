@@ -1,5 +1,8 @@
 import { BsFillMoonFill } from 'react-icons/bs';
-const Header = ({toggleTheme, theme}) => {
+const Header = ({theme}) => {
+  const toggleTheme = () => {
+    
+  }
   return (
     <div className={`h-20 font-semibold flex justify-between sm:px-40 items-center shadow-md`}>
       <div className='lhs'>
@@ -9,7 +12,7 @@ const Header = ({toggleTheme, theme}) => {
       </div>
       <button className="flex items-center gap-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300" onClick={toggleTheme}>
         <BsFillMoonFill />
-        Dark Mode
+        {theme} Mode
       </button>
     </div>
   )

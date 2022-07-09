@@ -102,7 +102,7 @@ const MoreDetailsCountryContainer = ({ countryItem, countries }) => {
                 </div>
               </div>
             </div>
-            <div className="py-16 little-content-item flex text-xs">
+            <div className="border little-content-item flex text-xs">
               <span className="py-2 content-label font-semibold">
                 Border Countries:
               </span>

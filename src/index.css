@@ -111,6 +111,11 @@ body {
   padding: 2.5px 0;
 }
 
+.border.little-content-item {
+  padding-top: 50px;
+  border: none;
+}
+
 .little-content-item .content-value {
   color: var(--dark-gray-lm-in);
 }
