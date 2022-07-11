@@ -19,6 +19,7 @@ const Country = () => {
     }
     const fetchCountry = async () => {
       setCountry({})
+      setLoading(true)
       await axios(getCountryUrl())
       .then((onfulfilled) => {
         setCountry(onfulfilled.data[0])
@@ -33,7 +34,7 @@ const Country = () => {
     useEffect(() => {
       fetchCountry()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [name])
     return (
        <div className="pt-16 pb-16 pr-20 pl-20 flex flex-col gap-10 w-full pb-20">
        <div className="top pb-20">
