@@ -4,12 +4,14 @@ import { useEffect, useState, createContext } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from "./components/Header";
 import CountriesContainer from './components/CountriesContainer';
-import Country from './Pages/country';
-// import BorderCountry from './pages/border-country';
+import Country from './pages/country';
+// import BorderCountry from './pages/border-country'; 
 const baseURL = "https://restcountries.com/v2/";
 export const CountriesContext = createContext()
 export const ThemeContext = createContext('light');
 function App () {
+  // for test purposes
+  const [theme, setTheme] = useState('Light')
   const [loading, setLoading] = useState(true);
   const [countries, setCountries] = useState(null);
   const [error, setError] = useState(null);
@@ -32,11 +34,14 @@ function App () {
         setLoading(false)
       })
   }
+  const toggleTheme = () => {
+    setTheme(theme === 'Light' ? 'Dark' : 'Light')
+  }
   return (
       <Router>
       <CountriesContext.Provider value={{countries}}>
         <div className="App flex flex-col min-h-screen flex w-full">
-          <Header />
+          <Header toggleTheme={toggleTheme} theme={theme}/>
           <div className='flex min-h-screen justify-center w-full text-center sm:px-20'>
             <Routes>
               <Route path="/"

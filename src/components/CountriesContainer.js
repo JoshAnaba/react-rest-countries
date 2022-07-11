@@ -80,7 +80,7 @@ const CountriesContainer = ({countries}) => {
 
   return (
     <div className='w-full pt-16 pb-16 sm:px-20 flex flex-col align-center gap-10'>
-      <div className='z-10 top flex items-center justify-between flex-wrap'>
+      <div className='z-10 top flex items-center sm:justify-between justify-center--500 flex-wrap'>
         <Search search={search} searchCountry={searchCountry} />
         <FilterByRegion region={region} filterBy={filterBy} filterOpen={filterOpen} setFilterOpen={setFilterOpen} filterItems={filterItems} />
       </div>
