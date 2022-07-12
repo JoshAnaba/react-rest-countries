@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from "./components/Header";
 import CountriesContainer from './components/CountriesContainer';
 import Country from './pages/country';
-// import BorderCountry from './pages/border-country'; 
 const baseURL = "https://restcountries.com/v2/";
 export const CountriesContext = createContext()
 export const ThemeContext = createContext('light');
@@ -15,6 +14,7 @@ function App () {
   const [loading, setLoading] = useState(true);
   const [countries, setCountries] = useState(null);
   const [error, setError] = useState(null);
+
   useEffect(() => {
     fetchCountries()
   }, [])
@@ -53,9 +53,7 @@ function App () {
                   </>
                 }
               />
-            <Route path="/country/:name" element = { <Country /> } />
-              {/* <Route path="border-country/:border-name" element = { <BorderCountry /> } /> */}
-            {/* </Route> */}
+              <Route path="/country/:name" element = { <Country /> } />
             </Routes>
           </div>
         </div>
