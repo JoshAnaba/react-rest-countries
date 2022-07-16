@@ -2,10 +2,10 @@ import { BsFillMoonFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 const Header = ({theme, toggleTheme}) => {
   return (
-    <div className={`h-20 font-semibold flex justify-between sm:px-40 items-center shadow-md`}>
+    <div className={`h-20 font-semibold flex justify-between md:px-40 px-10 items-center shadow-md`}>
       <div className='lhs'>
       <Link to="/">
-        <h1 className="text-2xl cursor-pointer">
+        <h1 className="sm:text-2xl cursor-pointer">
           Where in the world?
         </h1>
       </Link>
