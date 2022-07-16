@@ -17,8 +17,9 @@ const CountryContainer = ({country}) => {
     <Link 
       to={{pathname: `/country/${country.name.toLowerCase()}`}}
       state= {{country}}
+      className="md:w-60 w-full"
     >
-      <motion.div className="country-container rounded md:w-60 w-full h-80 shadow-md cursor-pointer" 
+      <motion.div className="country-container rounded md:w-60 min-w-full h-80 shadow-md cursor-pointer" 
         variants={item} whileHover={{
         scale: 1.05,
         duration: 0.1
