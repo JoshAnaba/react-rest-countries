@@ -23,10 +23,71 @@ body {
 
 * {
   font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
   /* font-family: 'Open Sans', sans-serif; */
 }
 
 
+.back-to-top {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  gap: 10px;
+  width: 55px;
+  transition: 0.125s;
+  z-index: 2;
+  display: none;
+}
+
+.back-to-top-text {
+  display: none;
+}
+
+.back-to-top:hover {
+  width: 160px;
+  opacity: 1;
+  background: rgba(255, 255, 255, 1);
+}
+
+.back-to-top:hover .back-to-top-text {
+  display: block;
+}
+
+.back-to-top span {
+  font-size: 17px;
+  height: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .back-to-top-text {
+    display: none;
+  }
+
+  .back-to-top:hover {
+    width: 55px;
+  }
+
+  .back-to-top:hover .back-to-top-text {
+    display: none;
+  }
+
+  .back-to-top {
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    right: 20px;
+    bottom: 20px;
+  }
+}
 
 .light-mode {
   background: var(--light-mode-bg);
