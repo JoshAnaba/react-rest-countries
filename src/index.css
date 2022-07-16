@@ -101,8 +101,8 @@ body {
 }
 
 .search-bar, 
-.filters {
-  height: 50px;
+.filter-btn {
+  height: 60px;
 }
 
 .filter-item-ctn {
