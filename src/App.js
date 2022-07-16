@@ -42,7 +42,7 @@ function App () {
       <CountriesContext.Provider value={{countries}}>
         <div className="App flex flex-col min-h-screen flex w-full">
           <Header toggleTheme={toggleTheme} theme={theme}/>
-          <div className='flex min-h-screen justify-center w-full text-center sm:px-20'>
+          <div className='flex min-h-screen justify-center w-full text-center md:px-20 px-10 py-10'>
             <Routes>
               <Route path="/"
                 element = {

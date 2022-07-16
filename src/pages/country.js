@@ -36,8 +36,8 @@ const Country = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [name])
     return (
-       <div className="pt-16 pb-16 pr-20 pl-20 flex flex-col gap-10 w-full pb-20">
-       <div className="top pb-20">
+       <div className="md:py-16 md:px-20 flex flex-col gap-10 w-full">
+       <div className="top md:pb-20">
        <BackBtn />
        </div>
         {

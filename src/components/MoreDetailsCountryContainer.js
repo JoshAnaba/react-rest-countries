@@ -23,18 +23,18 @@ const MoreDetailsCountryContainer = ({ countryItem, countries }) => {
   }, [countries])
   return (
     <>
-      <div className="inner-page-country-content flex w-full justify-between">
-        <motion.div className="lhs w-4/12 p-5 rounded-md" animate={{ x: 0 }} transition={{ ease: "easeOut", duration: 0.3 }}>
-          <img src={countryItem.flags ? countryItem.flags?.png : countryItem.flag} className="w-full scale-150 origin-left shadow-md" alt={countryItem.name} />
+      <div className="inner-page-country-content flex w-full flex-col md:flex-row justify-between">
+        <motion.div className="lhs md:w-4/12 p-5 rounded-md" animate={{ x: 0 }} transition={{ ease: "easeOut", duration: 0.3 }}>
+          <img src={countryItem.flags ? countryItem.flags?.png : countryItem.flag} className="w-full md:scale-150 origin-left shadow-md" alt={countryItem.name} />
         </motion.div>
-        <motion.div className="rhs w-1/2" animate={{ x: 0 }} transition={{ ease: "easeOut", duration: 0.3 }}>
+        <motion.div className="rhs w-full md:w-1/2" animate={{ x: 0 }} transition={{ ease: "easeOut", duration: 0.3 }}>
           <div className="content text-start flex flex-col justify-start p-2.5">
-            <p className="text-base text-3xl font-semibold mb-8">
+            <p className="text-base text-2xl md:text-3xl font-semibold mb-8">
               {countryItem.name}
             </p>
-            <div className='flex justify-between'>
+            <div className='flex justify-between md:flex-row flex-col gap-10 md:gap-0'>
               <div className='lhs'>
-                <div className="little-content">
+                <div className="little-content flex flex-col gap-3">
                   <div className="little-content-item text-xs pb-3">
                     <span className="content-label font-semibold">
                       Native Name:
@@ -70,7 +70,7 @@ const MoreDetailsCountryContainer = ({ countryItem, countries }) => {
                 </div>
               </div>
               <div className='rhs'>
-                <div className='little-content'>
+                <div className='little-content flex flex-col gap-3'>
                   <div className="little-content-item text-xs pb-3">
                     <span className="content-label font-semibold">
                       Top Level Domain:
@@ -102,7 +102,7 @@ const MoreDetailsCountryContainer = ({ countryItem, countries }) => {
                 </div>
               </div>
             </div>
-            <div className="border little-content-item flex text-xs">
+            <div className="border little-content-item flex md:flex-row flex-col text-xs">
               <span className="py-2 content-label font-semibold">
                 Border Countries:
               </span>
