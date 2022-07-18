@@ -5,10 +5,11 @@ import MoreDetailsCountryContainer from '../components/MoreDetailsCountryContain
 import axios from "axios";
 import BackBtn from '../components/BackBtn';
 // import { useSelector } from 'react-redux';
-import { CountriesContext } from '../App'
+import { CountriesContext, ThemeContext } from '../App'
 const baseURL = "https://restcountries.com/v2/";
 const Country = () => {
   const { countries } = useContext(CountriesContext)
+  const { theme } = useContext(ThemeContext)
   // const counter = useSelector((state) => state.counter)
   let { name } = useParams()
   const [loading, setLoading] = useState(true);
@@ -36,10 +37,10 @@ const Country = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [name])
     return (
-       <div className="md:py-16 md:px-20 flex flex-col gap-10 w-full">
-       <div className="top md:pb-20">
-       <BackBtn />
-       </div>
+      <div className={`md:py-16 md:px-20 pb-40 flex flex-col gap-10 w-full`}>
+        <div className="top md:pb-20">
+          <BackBtn />
+        </div>
         {
           error 
             ? <div>{error}</div> : loading ? <div>Loading...</div> 

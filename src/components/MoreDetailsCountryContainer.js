@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import functions from '../utils/functions'
+import { ThemeContext } from '../App'
 const MoreDetailsCountryContainer = ({ countryItem, countries }) => {
+  const { theme } = useContext(ThemeContext);
   const {formatNumber} = functions
   const [borders, setBorders] = useState([])
   const getCountriesNamesFromBorderArray = () => {
@@ -112,7 +114,7 @@ const MoreDetailsCountryContainer = ({ countryItem, countries }) => {
                   return (
                     <Link
                     to={`/country/${e.name.toLowerCase()}`}
-                    className="p-2 px-2.5 shadow-md rounded gap-10"
+                    className={`${theme}-mode-el p-2 px-2.5 shadow-md rounded gap-10`}
                     key={e.name}
                   >
                     {e.name}

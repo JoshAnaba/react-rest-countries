@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion';
 import functions from '../utils/functions'
+import { ThemeContext } from '../App'
 
 const CountryContainer = ({country}) => {
+  const { theme } = useContext(ThemeContext);
   const {formatNumber} = functions
   const item = {
     hidden: { y: 20, opacity: 0 },
@@ -17,9 +19,9 @@ const CountryContainer = ({country}) => {
     <Link 
       to={{pathname: `/country/${country.name.toLowerCase()}`}}
       state= {{country}}
-      className="md:w-60 w-full"
+      className={`md:w-60 w-full`}
     >
-      <motion.div className="country-container rounded md:w-60 min-w-full h-80 shadow-md cursor-pointer" 
+      <motion.div className={`${theme}-mode-el country-container rounded md:w-60 min-w-full h-80 shadow-md cursor-pointer`}
         variants={item} whileHover={{
         scale: 1.05,
         duration: 0.1
