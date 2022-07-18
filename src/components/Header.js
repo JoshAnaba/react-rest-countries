@@ -1,5 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { BsMoon, BsFillMoonFill } from 'react-icons/bs';
+// import { BiSun } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../App';
 import { setToLS } from '../utils/save-to-ls';
