@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { setToLS, getFromLS } from './utils/save-to-ls';
 // import { Provider } from 'react-redux'
 // import store from './store'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
+ if (!getFromLS('theme')) {
+  setToLS('theme', 'light')
+ }
 root.render(
   <React.StrictMode>
     <App />

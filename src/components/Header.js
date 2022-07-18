@@ -1,12 +1,17 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { BsFillMoonFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../App';
+import { setToLS } from '../utils/save-to-ls';
 const Header = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light')
+    setTheme(theme === 'light' ? 'dark' : 'light');
   }
+  useEffect(()=>{
+    console.log(theme)
+    setToLS('theme', theme)
+  }, [theme])
   return (
     <div className={`${theme}-mode-el h-20 font-semibold flex justify-between md:px-40 px-10 items-center shadow-md z-10`}>
       <div className='lhs'>
