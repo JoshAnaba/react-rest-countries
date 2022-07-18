@@ -17,7 +17,7 @@ const BackToTop = () => {
     document.documentElement.scrollTop = 0
   }
   return (
-    <div id="back-to-top" className={`${theme}-mode-el back-to-top`} onClick={goBackToTop}>
+    <div id="back-to-top" className={`${theme}-mode-el back-to-top shadow-md`} onClick={goBackToTop}>
       <span className="back-to-top-text">Back to Top</span>
       <span className="material-icons"> arrow_upward </span>
     </div>
