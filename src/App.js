@@ -45,7 +45,7 @@ function App () {
         <Router>
           <div className="App flex flex-col min-h-screen flex w-full">
             <Header />
-            <div className={`${theme}-mode-bg flex min-h-screen justify-center w-full text-center md:px-20 px-10 py-10`}>
+            <div className={`${theme}-mode-bg flex min-h-screen justify-center w-full text-center md:px-20 px-10 py-12`}>
               <Routes>
                 <Route path="/"
                   element = {
