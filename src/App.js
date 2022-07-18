@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from "./components/Header";
 import CountriesContainer from './components/CountriesContainer';
 import Country from './pages/country';
-import Home from './pages/home';
 export const ThemeContext = createContext();
 const baseURL = "https://restcountries.com/v2/";
 export const CountriesContext = createContext()
@@ -56,7 +55,6 @@ function App () {
                   }
                 />
                 <Route path="/country/:name" element = { <Country /> } />
-                <Route path="/home" element = { <Home /> } />
               </Routes>
             </div>
           </div>

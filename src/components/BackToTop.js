@@ -1,8 +1,6 @@
-import React, { useEffect, useContext } from 'react'
-// import { ThemeContext } from '../App'
+import React, { useEffect } from 'react'
 
 const BackToTop = () => {
-  // const { theme } = useContext(ThemeContext)
   useEffect(()=>{
     const mybutton = document.getElementById('back-to-top')
     window.onscroll = () => scrollFunction()

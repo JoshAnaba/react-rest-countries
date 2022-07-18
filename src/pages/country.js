@@ -1,16 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react'
-// eslint-disable-next-line no-unused-vars
-import { useParams, useLocation } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import MoreDetailsCountryContainer from '../components/MoreDetailsCountryContainer';
 import axios from "axios";
 import BackBtn from '../components/BackBtn';
-// import { useSelector } from 'react-redux';
-import { CountriesContext, ThemeContext } from '../App'
+import { CountriesContext } from '../App'
 const baseURL = "https://restcountries.com/v2/";
 const Country = () => {
   const { countries } = useContext(CountriesContext)
-  const { theme } = useContext(ThemeContext)
-  // const counter = useSelector((state) => state.counter)
   let { name } = useParams()
   const [loading, setLoading] = useState(true);
   const [countryItem, setCountry] = useState(null);
