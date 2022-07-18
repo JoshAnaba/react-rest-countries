@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import CountriesContainer from './components/CountriesContainer';
 import Country from './pages/country';
 import BackToTop from './components/BackToTop';
-import { setToLS, getFromLS } from './utils/save-to-ls';
+import { getFromLS } from './utils/save-to-ls';
 export const ThemeContext = createContext();
 const baseURL = "https://restcountries.com/v2/";
 export const CountriesContext = createContext()
