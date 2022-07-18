@@ -68,10 +68,10 @@
   justify-content:center;
   gap: 10px;
   width: 55px;
-  transition: 0.125s;
   z-index: 2;
   display: none;
   overflow: hidden;
+  transition: 0.3s;
 }
 
 .back-to-top-text {
