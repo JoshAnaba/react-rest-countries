@@ -139,10 +139,6 @@
   animation: squeeze-in 0.4s ease-in-out;
 }
 
-.filter-item:hover {
-  color: #000;
-}
-
 .filters button span:first-child {
   font-size: 14px;
 }
@@ -175,13 +171,13 @@
 }
 
 .load-more.light-mode-el {
-  background: var(--light-mode-bg);
+  background: var(--light-mode-el);
   border: 2px solid var(--light-mode-text);
   color: var(--light-mode-text);
 }
 
 .load-more.dark-mode-el {
-  background: var(--dark-mode-bg);
+  background: var(--dark-mode-el);
   border: 2px solid var(--dark-mode-text);
   color: var(--dark-mode-text);
 }

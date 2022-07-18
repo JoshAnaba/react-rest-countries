@@ -8,7 +8,7 @@ const Header = () => {
     setTheme(theme === 'light' ? 'dark' : 'light')
   }
   return (
-    <div className={`${theme}-mode-el h-20 font-semibold flex justify-between md:px-40 px-10 items-center shadow-md`}>
+    <div className={`${theme}-mode-el h-20 font-semibold flex justify-between md:px-40 px-10 items-center shadow-md z-10`}>
       <div className='lhs'>
       <Link to="/">
         <h1 className="sm:text-2xl cursor-pointer">

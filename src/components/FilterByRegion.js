@@ -5,7 +5,7 @@ const FilterByRegion = ({region, filterBy, filterOpen, setFilterOpen, filterItem
   const { theme } = useContext(ThemeContext)
   return (
     <>
-      <div className={`${theme}-mode-el z-10 filters relative cursor-pointer items-center w-44`}>
+      <div className={`z-10 filters relative cursor-pointer items-center w-44`}>
         <button className={`${theme}-mode-el filter-btn flex items-center gap-5 min-w-full justify-between transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 shadow-md p-3.5 rounded-md`} onClick={()=>{setFilterOpen(!filterOpen)}}>
           <span className="">{region ? region : 'Filter by Region'}</span>
           <span className="material-icons">{!filterOpen ? 'expand_more': 'expand_less'}</span>

@@ -16,10 +16,6 @@ module.exports = {
 
       '2xl': '1536px',
     },
-    colors: {
-      light: 'white',
-      dark: 'black'
-    },
     extend: {},
   },
   plugins: [],
