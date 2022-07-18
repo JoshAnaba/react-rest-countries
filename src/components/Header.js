@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { BsFillMoonFill } from 'react-icons/bs';
+import { BsMoon, BsFillMoonFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../App';
 import { setToLS } from '../utils/save-to-ls';
@@ -21,11 +21,18 @@ const Header = () => {
         </h1>
       </Link>
       </div>
-      <button className="flex font-normal items-center gap-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 capitalize" onClick={toggleTheme}>
-        <BsFillMoonFill />
-        {theme} Mode
-      </button>
-    </div>
+      {
+      theme === 'light' ?
+        <button className="flex font-normal items-center gap-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 capitalize" onClick={toggleTheme}>
+          <BsMoon />
+          Dark Mode
+        </button> :
+        <button className="flex font-normal items-center gap-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 capitalize" onClick={toggleTheme}>
+          <BsFillMoonFill />
+          Light Mode
+        </button>  
+      }
+      </div>
   )
 }
 
