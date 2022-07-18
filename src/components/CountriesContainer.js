@@ -84,7 +84,7 @@ const CountriesContainer = ({countries}) => {
   }
 
   return (
-    <div className={`${theme}-mode-b w-full md:pb-16 md:px-20 px-0 flex flex-col align-center gap-7`}>
+    <section className={`${theme}-mode-b w-full md:pb-16 md:px-20 px-0 flex flex-col align-center gap-7`}>
       <div className='top flex items-center md:justify-between gap-10 flex-wrap'>
         <Search search={search} searchCountry={searchCountry} />
         <FilterByRegion region={region} filterBy={filterBy} filterOpen={filterOpen} setFilterOpen={setFilterOpen} filterItems={filterItems} />
@@ -107,7 +107,7 @@ const CountriesContainer = ({countries}) => {
         )}
       </motion.div>
       <LoadMoreBtn truncatedNumber={truncatedNumber} filteredCountries={filteredCountries} loadMore={loadMore} />
-    </div>
+    </section>
   )
 }
 

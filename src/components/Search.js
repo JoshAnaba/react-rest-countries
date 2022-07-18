@@ -11,7 +11,7 @@ const Search = ({search, searchCountry}) => {
               search
             </span>
           </label>
-          <input type="search" id="search" placeholder='Search country' value={search} className='border-0 outline-0 w-full' onInput={(e) => searchCountry(e.target.value)} 
+          <input type="search" id="search" placeholder='Search for a country...' value={search} className='border-0 outline-0 w-full' onInput={(e) => searchCountry(e.target.value)} 
           />
         </div>
     </>
